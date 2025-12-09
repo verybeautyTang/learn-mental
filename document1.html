@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- HTML结构 -->
+    <div id="test-div">
+      <p id="test-js">javascript</p>
+      <div class="c-red">
+        <p>Java</p>
+      </div>
+      <div class="c-red c-green">
+        <p>Python</p>
+        <p>Ruby</p>
+        <p>Swift</p>
+      </div>
+      <div class="c-green">
+        <p>Scheme</p>
+        <p>Haskell</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 选择<p>javascript</p>:
+    let js = document.getElementById('test-js')
+
+    // 选择<p>Python</p>,<p>Ruby</p>,<p>Swift</p>:
+    let arr = document.getElementsByClassName('c-green')[0].children
+    console.log(arr)
+
+    // 选择<p>Haskell</p>:
+    let haskell = document.getElementsByClassName('c-green')[1].lastElementChild
+
+    // 测试:
+    if (!js || js.innerText !== 'javascript') {
+      alert('选择JavaScript失败!')
+    } else if (
+      !arr ||
+      arr.length !== 3 ||
+      !arr[0] ||
+      !arr[1] ||
+      !arr[2] ||
+      arr[0].innerText !== 'Python' ||
+      arr[1].innerText !== 'Ruby' ||
+      arr[2].innerText !== 'Swift'
+    ) {
+      console.log('选择Python,Ruby,Swift失败!')
+    } else if (!haskell || haskell.innerText !== 'Haskell') {
+      console.log('选择Haskell失败!')
+    } else {
+      console.log('测试通过!')
+    }
+
+    // 获取<p>javascript</p>节点:
+    // let js = ???;
+
+    // 修改文本为JavaScript:
+    // TODO:
+    js.innerHTML = 'JavaScript'
+
+    // 修改CSS为: color: #ff0000, font-weight: bold
+    // TODO:
+    js.style.color = '#ff0000'
+    js.style.fontWeight = 'bold'
+    // 测试:
+    if (js && js.parentNode && js.parentNode.id === 'test-div' && js.id === 'test-js') {
+      if (js.innerText === 'JavaScript') {
+        if (
+          js.style &&
+          js.style.fontWeight === 'bold' &&
+          (js.style.color === 'red' ||
+            js.style.color === '#ff0000' ||
+            js.style.color === '#f00' ||
+            js.style.color === 'rgb(255, 0, 0)')
+        ) {
+          console.log('测试通过!')
+        } else {
+          console.log('CSS样式测试失败!')
+        }
+      } else {
+        console.log('文本测试失败!')
+      }
+    } else {
+      console.log(js.parentNode.id)
+      console.log(js.id)
+      console.log('节点测试失败!')
+    }
+  </script>
+</html>

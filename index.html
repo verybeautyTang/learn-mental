@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>hrllo</div>
+    <script>
+      function* fib(max) {
+        let t,
+          a = 0,
+          b = 1,
+          n = 0
+        while (n < max) {
+          yield a
+          ;[a, b] = [b, a + b]
+          n++
+        }
+        return
+      }
+      let f = fib(5)
+      f.next() // {value: 0, done: false}
+      f.next() // {value: 1, done: false}
+      f.next() // {value: 1, done: false}
+      f.next() // {value: 2, done: false}
+      f.next() // {value: 3, done: false}
+      f.next() // {value: undefined, done: true}
+
+      co(function* () {
+        // yield any promise
+        var result = yield Promise.resolve(true)
+      }).catch(onerror)
+
+      // async function cos() {
+      //   var result = await Promise.resolve(true)
+      // }
+      ;(22222).toString()
+    </script>
+  </body>
+</html>

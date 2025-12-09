@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>testkjsafh</div>
+    <script>
+      const observer = new PerformanceObserver((list) => {
+        list.getEntries().forEach((entry) => {
+          console.log(`The time to ${entry.name} was ${entry.startTime} milliseconds.`)
+        })
+      })
+
+      observer.observe({ entryTypes: ['largest-contentful-paint', 'paint'], buffered: true })
+    </script>
+  </body>
+</html>

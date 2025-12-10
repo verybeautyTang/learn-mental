@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,8 @@
     "vite": "7.2.7"
   },
   "dependencies": {
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-vue-devtools": "^8.0.5",
     "vue": "3.5.25"
   }
 }

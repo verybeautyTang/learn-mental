@@ -17,4 +17,6 @@ import OnePng from '@/assets/img/1.png'
 import SevenPng from '@/assets/img/7.png'
 
 import HelloWorld from './HelloWorld.vue'
+debugger
+console.log('我看看我被移除了没有！！！83745786！')
 </script>
